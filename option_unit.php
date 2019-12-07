@@ -21,4 +21,4 @@ while($data = pg_fetch_array($sql)){ // Ambil semua data dari hasil eksekusi $sq
 $callback = array('data_unit'=>$html); // Masukan variabel html tadi ke dalam array $callback dengan index array : data_unit
 
 echo json_encode($callback); // konversi varibael $callback menjadi JSON
-?>
+?>	

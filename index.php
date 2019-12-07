@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Chained Dropdown</title>
+	<title>Form Input API</title>
 	
 	<!-- Load librari/plugin jquery nya -->
 	<script src="js/jquery.min.js" type="text/javascript"></script>
@@ -13,7 +13,12 @@
 	<hr>
 	
 	<table cellpadding="8">
-	<form action="/action_page.php">
+	<form action="http://172.16.33.157:8090/?district={district}&unit={unit}&start={start}&end={end}" id="form">
+	<!-- <form action="http://172.16.33.157:8088/" id="form"> -->
+	<!-- <form action="submit_form.php" id="form"> -->
+
+
+	<!-- <form action="https://jsonplaceholder.typicode.com/posts" id="form" name="form"> -->
 
 		<tr>
 			<td><b>Distrik</b></td>
@@ -56,7 +61,7 @@
 		<tr>
 			<td><b>Start Time</b></td>
 			<td>
-				<input type="datetime-local" name="finish" id="finish">
+				<input type="datetime-local" name="start" id="start">
 
 
 				<!-- <div id="loading" style="margin-top: 15px;">
@@ -68,7 +73,7 @@
 		<tr>
 			<td><b>Finish Time</b></td>
 			<td>
-			<input type="datetime-local" name="finish" id="finish">
+			<input type="datetime-local" name="end" id="end">
 
 				<!-- <div id="loading" style="margin-top: 15px;">
 					<img src="images/loading.gif" width="18"> <small>Loading...</small>
@@ -77,11 +82,25 @@
 		</tr>
 		<tr>
 			<td>
-				<input type="submit" value="submit">
+				<input type="submit" value="submit" id="form-btn">
 			</td>
 		</tr>
+		
 
 	</form>
 	</table>
+	<div id="loading2" style="margin-top: 15px;">
+					<img src="images/loading.gif" width="18"> <small>Loading...</small>
+	</div>
+	<div>
+		<h3>Formula</h3>
+	</div>
+
+	<div>
+		<h3>Baseline</h3>
+	</div>
+	<div>
+		<h3>Rekomendasi</h3>
+	</div>
 </body>
 </html>
