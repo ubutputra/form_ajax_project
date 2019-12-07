@@ -33,15 +33,18 @@ function callAPI($method, $url, $data){
    curl_close($curl);
    return $result;
 }
-var_dump($_POST['district']);
+
 $data_array =  array(
    "district"        => $_POST['district'],
    "unit"            => $_POST['unit'],
    "start"           => $_POST['start'],
    "end"             => $_POST['end'],
 );
+var_dump($data_array);
 
-$make_call = callAPI('POST', 'http://172.16.33.157:8088/',json_encode($data_array));
+$make_call = callAPI('POST', 'http://172.16.34.11:8099/',json_encode($data_array));
+// $make_call = callAPI('POST', 'http://172.16.34.11:8099/',$data_array);
+
 echo ($make_call);
 $response = json_decode($make_call, true);
 $errors   = $response['response']['errors'];

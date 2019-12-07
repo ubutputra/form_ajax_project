@@ -15,7 +15,7 @@ $sql = pg_query($connect, "SELECT * FROM public.unit WHERE district_id='".$id_di
 $html = "<option value=''>Pilih</option>";
 
 while($data = pg_fetch_array($sql)){ // Ambil semua data dari hasil eksekusi $sql
-	$html .= "<option value='".$data['id_unit']."'>".$data['unit_number']."</option>"; // Tambahkan tag option ke variabel $html
+	$html .= "<option value='".$data['unit_number']."'>".$data['unit_number']."</option>"; // Tambahkan tag option ke variabel $html
 }
 
 $callback = array('data_unit'=>$html); // Masukan variabel html tadi ke dalam array $callback dengan index array : data_unit

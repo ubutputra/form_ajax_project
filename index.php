@@ -13,12 +13,11 @@
 	<hr>
 	
 	<table cellpadding="8">
-	<form action="http://172.16.33.157:8090/?district={district}&unit={unit}&start={start}&end={end}" id="form">
-	<!-- <form action="http://172.16.33.157:8088/" id="form"> -->
+	<!-- <form action="http://172.16.34.11:8099/?district={district}&unit={unit}&start={start}&end={end}" id="form"> -->
 	<!-- <form action="submit_form.php" id="form"> -->
+	<form id="form">
 
 
-	<!-- <form action="https://jsonplaceholder.typicode.com/posts" id="form" name="form"> -->
 
 		<tr>
 			<td><b>Distrik</b></td>
@@ -61,7 +60,7 @@
 		<tr>
 			<td><b>Start Time</b></td>
 			<td>
-				<input type="datetime-local" name="start" id="start">
+				<input type="datetime-local" name="start" id="start" step="1">
 
 
 				<!-- <div id="loading" style="margin-top: 15px;">
@@ -73,7 +72,7 @@
 		<tr>
 			<td><b>Finish Time</b></td>
 			<td>
-			<input type="datetime-local" name="end" id="end">
+			<input type="datetime-local" name="end" id="end" step="1">
 
 				<!-- <div id="loading" style="margin-top: 15px;">
 					<img src="images/loading.gif" width="18"> <small>Loading...</small>
@@ -102,5 +101,23 @@
 	<div>
 		<h3>Rekomendasi</h3>
 	</div>
+
+	
+
+	<table style="width: 100%">
+     <thead>
+          <tr>
+               <th>No</th>
+               <th>Parameter</th>
+               <th>Unit</th>
+               <th>Aktual</th>
+			   <th>Deviasi</th>
+
+           </tr>
+     </thead>
+     <tbody id="tbody">
+     </tbody>
+	</table>
+
 </body>
 </html>
