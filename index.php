@@ -132,12 +132,13 @@
 	<table style="width: 100%">
      <thead>
           <tr>
-               <th>Indikator</th>
-			   <th>recom_rendal</th>
-			   <th>recom_engineering</th>	
-			   <th>cause</th>
-			   <th>recom_operation</th>
-			   <th>recom_maintenance</th>
+		  		<th>No</th>
+				<th>Indikator</th>
+				<th>recom_rendal</th>
+				<th>recom_engineering</th>	
+				<th>cause</th>
+				<th>recom_operation</th>
+				<th>recom_maintenance</th>
 			   
 
            </tr>

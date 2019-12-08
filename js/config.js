@@ -7,7 +7,6 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 		console.log('masuk form')
 		e.preventDefault(); // avoid to execute the actual submit of the form.
 		$("#loading2").show(); 
-		var form = $(this);
 		var unit = $("#unit").val();
 		var district = $("#district").val();
 		var start = $("#start").val();
@@ -52,19 +51,95 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 					e.overrideMimeType("application/json;charset=UTF-8");
 				}
 			},
-			success: function(data){ // Ketika proses pengiriman berhasil
+			success: function(output){ // Ketika proses pengiriman berhasil
 
 				console.log('haii sukses');
-				console.log(data);
+				console.log(output);
 				$("#loading2").hide(); 
-				// data.__setitem__("Content-type", "application/json");
-				// data.__setitem__("Access-Control-Allow-Origin", "*");
+					
+				var save_index = [];
+				$.each(output.baseline, function (index) {
+					// while(output.baselineheatrate.hasOwnProperty(idx))){
+					// }
+					save_index.push = index;
+					if(index == 8) {
+						var baseline_html =  "<span>" +"Gap = "+output.baseline[index].gap + "</span>"
+										+"<br>" + "<span>" + "Baselined = " + output.baseline[index].baselined+ "</span>" + "<br>";
+						$('#baseline').append(baseline_html);
+						return true;
+					}
+					var eachrow = "<tr>"
+								+ "<td style='text-align:center;'>" + index+ "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].perubahan+ "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].percentheatrate + "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].baselineheatrate+ "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].deviasi + "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].gap_percentheatrate + "</td>"
 
-				// var arr = $.parseJSON(response);
-				// console.log(arr);
+								+ "<td style='text-align:center;'>" + output.baseline[index].gap_kCal_kWh+ "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].polaritas+ "</td>"
+
+
+								+ "</tr>";
+					$('#tbody').append(eachrow);
+					// idx = idx + 1
+
+					// if(output.baseline.hasOwnProperty(idx)){
+					// 	idx = idx + 1
+
+					// }
+					// else{
+					// 	idx = idx + 3;
+					// }
+			   });
+
+			   //looping rekomendasi
+			   $.each(output.baseline, function (index,item) {
+				//    console.log(index);
+				//    console.log("iter1")
+					var open_tag = "<tr>";
+					$('#table_rekom').append(open_tag);
+					if(index == 8) {
+						return true;
+					}
+					//add number index
+					var row2 =  "<td style='text-align:center;'>" +index+ "</td>" ;
+						$('#table_rekom').append(row2);
+
+					//open tag rekom
+					
+					if(item.rekomendasi	 === "cek alat ukur"){
+						var row2 =  "<td style='text-align:center;'>" +"cek alat ukur"+ "</td>" + "</tr>";
+						$('#table_rekom').append(row2);
+						return true
+					}
+					var save_baseline = this;
+					// console.log(save_baseline);
+					$.each(item.rekomendasi, function(index2,item2){
+						console.log("iter2")
+
+						// console.log(item2);	
+						
+						// console.log(item2.index2);
+						var row2 = "<td style='text-align:center;'>" + item2[0]+ "</td>";
+						// console.log("iter2");
+						// console.log(index2);
+						// console.log(item2);	
+						$('#table_rekom').append(row2);
+
+						
+			
+					});
+					var close =  "</tr>";
+					$('#table_rekom').append(close);
+			
+				});
+
+				
 			},
 			error: function (xhr, ajaxOptions, thrownError) { // Ketika ada error
 				alert(thrownError); // Munculkan alert error
+				// alert("Hello! I am an alert box!!");
 			}
 		});
 			   
@@ -106,7 +181,6 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 		// $("#unit").hide(); // Sembunyikan dulu combobox unit nya
 		// $("#loading").show(); // Tampilkan loadingnya
 		var form = $(this);
-		var url = form.attr('action');
 		$.ajax({ 
 			type: 'GET', 
 			url: 'http://dummy.restapiexample.com/api/v1/employee/1', 
@@ -114,9 +188,6 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 			dataType: 'json',
 			success: function (data) { 
 				console.log(data);
-				// var jsonStr = JSON.stringify(data);
-				// document.body.innerHTML = jsonStr;
-				var obj = data;
 				var output = 
 					{
 						"22":6356.637963600003,
@@ -151,7 +222,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						   "38":{
 							  "gap_percentheatrate":2273.2118815000013,
 							  "polaritas":"positif",
-							  "gap_kCal/kWh":7225403.965347754,
+							  "gap_kCal_kWh":7225403.965347754,
 							  "percentheatrate":0.25,
 							  "perubahan":5.5,
 							  "rekomendasi":{
@@ -180,7 +251,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						   "39":{
 							  "gap_percentheatrate":-263.23645430399904,
 							  "polaritas":"negatif",
-							  "gap_kCal/kWh":-836697.070005261,
+							  "gap_kCal_kWh":-836697.070005261,
 							  "percentheatrate":-0.32,
 							  "perubahan":10.0,
 							  "rekomendasi":"cek alat ukur",
@@ -194,7 +265,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						   "40":{
 							  "gap_percentheatrate":-423.95694919999994,
 							  "polaritas":"negatif",
-							  "gap_kCal/kWh":-1347547.1630321997,
+							  "gap_kCal_kWh":-1347547.1630321997,
 							  "percentheatrate":-0.04,
 							  "perubahan":0.1,
 							  "rekomendasi":"cek alat ukur",
@@ -204,7 +275,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						   "43":{
 							  "gap_percentheatrate":208.67710643899966,
 							  "polaritas":"positif",
-							  "gap_kCal/kWh":663280.1828163604,
+							  "gap_kCal_kWh":663280.1828163604,
 							  "percentheatrate":0.29,
 							  "perubahan":1.0,
 							  "rekomendasi":{
@@ -249,10 +320,11 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 					 }
 				
 					
-				
-				$.each(output.baseline, function (index, item) {
+				var save_index = [];
+				$.each(output.baseline, function (index) {
 					// while(output.baselineheatrate.hasOwnProperty(idx))){
 					// }
+					save_index.push = index;
 					if(index == 8) {
 						var baseline_html =  "<span>" +"Gap = "+output.baseline[index].gap + "</span>"
 										+"<br>" + "<span>" + "Baselined = " + output.baseline[index].baselined+ "</span>" + "<br>";
@@ -266,9 +338,8 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 								+ "<td style='text-align:center;'>" + output.baseline[index].baselineheatrate+ "</td>"
 								+ "<td style='text-align:center;'>" + output.baseline[index].deviasi + "</td>"
 								+ "<td style='text-align:center;'>" + output.baseline[index].gap_percentheatrate + "</td>"
-								+ "<td style='text-align:center;'>" + output.baseline[index].gap_percentheatrate + "</td>"
 
-								// + "<td style='text-align:center;'>" + output.baseline[index].gap_kCal'/'kWh+ "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].gap_kCal_kWh+ "</td>"
 								+ "<td style='text-align:center;'>" + output.baseline[index].polaritas+ "</td>"
 
 
@@ -284,6 +355,50 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 					// 	idx = idx + 3;
 					// }
 			   });
+
+			   //looping rekomendasi
+			   $.each(output.baseline, function (index,item) {
+				//    console.log(index);
+				//    console.log("iter1")
+					var open_tag = "<tr>";
+					$('#table_rekom').append(open_tag);
+					if(index == 8) {
+						return true;
+					}
+					//add number index
+					var row2 =  "<td style='text-align:center;'>" +index+ "</td>" ;
+						$('#table_rekom').append(row2);
+
+					//open tag rekom
+					
+					if(item.rekomendasi	 === "cek alat ukur"){
+						var row2 =  "<td style='text-align:center;'>" +"cek alat ukur"+ "</td>" + "</tr>";
+						$('#table_rekom').append(row2);
+						return true
+					}
+					var save_baseline = this;
+					// console.log(save_baseline);
+					$.each(item.rekomendasi, function(index2,item2){
+						console.log("iter2")
+
+						// console.log(item2);	
+						
+						// console.log(item2.index2);
+						var row2 = "<td style='text-align:center;'>" + item2[0]+ "</td>";
+						// console.log("iter2");
+						// console.log(index2);
+						// console.log(item2);	
+						$('#table_rekom').append(row2);
+
+						
+			
+					});
+					var close =  "</tr>";
+					$('#table_rekom').append(close);
+			
+		});
+
+			
 
 			 
 			}
