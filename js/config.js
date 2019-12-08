@@ -11,26 +11,39 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 		var unit = $("#unit").val();
 		var district = $("#district").val();
 		var start = $("#start").val();
+		start = start.concat(':00')
 		start = start.replace("T"," ");
 		var end = $("#end").val();
+		end = end.concat(':00')
 		end = end.replace("T"," ");
+		console.log(end);
+		var uri = 'http://172.16.33.157:8099/';
+		
 
-		var url = form.attr('action');
-		url = 'http://172.16.34.11:8099/';
+
+
+		
+
+		// var url = form.attr('action');
+		// url = 'http://172.16.34.11:8099/';
 		// console.log(form.serialize);
 		// $("div").text($("form").serialize());
 		  //do ajax proses
 		$.ajax({
 			type: "GET", // Method pengiriman data bisa dengan GET atau POST
 			//http://localhost:6969/?district={district}&unit={unit}0&start={time start}&end={time end}
-			url: url, // Isi dengan url/path file php yang dituju
+			url: uri, // Isi dengan url/path file php yang dituju
+			crossDomain: true,
+			// contentType: "application/json; charset=utf-8",
+			contentType: 'application/x-www-form-urlencoded',
+			
 			// uri : "submit_form.php",
 			// data: form.serialize(), // data yang akan dikirim ke file yang dituju
 			data: { 
-				unit: unit,
-				district : district,
-				start : start,
-				end : end 
+				"unit": unit,
+				"district" : district,
+				"start" : start,
+				"end" : end 
 			}, 
 
 			dataType: "json",
@@ -44,6 +57,8 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 				console.log('haii sukses');
 				console.log(data);
 				$("#loading2").hide(); 
+				// data.__setitem__("Content-type", "application/json");
+				// data.__setitem__("Access-Control-Allow-Origin", "*");
 
 				// var arr = $.parseJSON(response);
 				// console.log(arr);
@@ -102,115 +117,172 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 				// var jsonStr = JSON.stringify(data);
 				// document.body.innerHTML = jsonStr;
 				var obj = data;
-				var output = {
-					"1" : "value",
-					"2" : "value",
-					"3" : "value",
-					"4" : "value",
-					"5" : "value",
-					"6" : "value",
-					"7" : "value",
-					"8" : "value",
-					"9" : "value",
-					"10" : "value",
-					"12" : "value",
-					"13" : "value",
-					"14" : "value",
-					"15" : "value",
-					"16" : "value",
-					"17" : "value",
-					"18" : "value",
-					"19" : "value",
-					"20" : "value",
-					"21" : "value",
-					"22" : "value",
-					"23" : "value",
-					"24" : "value",
-					"25" : "value",
-					"26" : "value",
-					"27" : "value",
-					"28" : "value",
-					"29" : "value",
-					"30" : "value",
-					"31" : "value",
-					"32" : "value",
-					"33" : "value",
-					"34" : "value",
-					"35" : "value",
-					"36" : "value",
-					"37" : "value",
-					"38" : "value",
-					"39" : "value",
-					"40" : "value",
-					"41" : "value",
-					"42" : "value",
-					"43" : "value",
-					"baseline" : {
-						"8" : {
-							"baselined" : "value",
-							"gap" : "value"
+				var output = 
+					{
+						"22":6356.637963600003,
+						"23":4846.257295600001,
+						"24":1227.6847676999996,
+						"25":1258.2218786000003,
+						"26":12430.5464815,
+						"27":40080.63561969998,
+						"28":-1.0,
+						"29":139.41560060000023,
+						"30":337.15042100000034,
+						"31":476.56602160000057,
+						"10":8756.23919699997,
+						"32":18.21467687996781,
+						"11":-1.0,
+						"33":6.430426284727057,
+						"12":23854.30071299998,
+						"34":0.925601048598021,
+						"13":23387.3243947,
+						"35":17207261.3828125,
+						"14":15084.445701600007,
+						"36":2990.4226118,
+						"15":20775.356936433327,
+						"37":5754.123619489045,
+						"16":1400.2616256999995,
+						"38":50162.47139300003,
+						"17":64.08954789999996,
+						"39":8756.23919699997,
+						"18":7322.769117999998,
+						"19":40080.63561969998,
+						"baseline":{
+						   "38":{
+							  "gap_percentheatrate":2273.2118815000013,
+							  "polaritas":"positif",
+							  "gap_kCal/kWh":7225403.965347754,
+							  "percentheatrate":0.25,
+							  "perubahan":5.5,
+							  "rekomendasi":{
+								 "indicator":[
+									"b1"
+								 ],
+								 "recom_rendal":[
+									"c1"
+								 ],
+								 "recom_engineering":[
+									"f1"
+								 ],
+								 "cause":[
+									"a1"
+								 ],
+								 "recom_operation":[
+									"d1"
+								 ],
+								 "recom_maintenance":[
+									"e1"
+								 ]
+							  },
+							  "deviasi":50010.66139300003,
+							  "baselineheatrate":151.81
+						   },
+						   "39":{
+							  "gap_percentheatrate":-263.23645430399904,
+							  "polaritas":"negatif",
+							  "gap_kCal/kWh":-836697.070005261,
+							  "percentheatrate":-0.32,
+							  "perubahan":10.0,
+							  "rekomendasi":"cek alat ukur",
+							  "deviasi":8226.13919699997,
+							  "baselineheatrate":530.1
+						   },
+						   "8":{
+							  "baselined":3178.5,
+							  "gap":-188.07738819999986
+						   },
+						   "40":{
+							  "gap_percentheatrate":-423.95694919999994,
+							  "polaritas":"negatif",
+							  "gap_kCal/kWh":-1347547.1630321997,
+							  "percentheatrate":-0.04,
+							  "perubahan":0.1,
+							  "rekomendasi":"cek alat ukur",
+							  "deviasi":1059.892373,
+							  "baselineheatrate":8.83
+						   },
+						   "43":{
+							  "gap_percentheatrate":208.67710643899966,
+							  "polaritas":"positif",
+							  "gap_kCal/kWh":663280.1828163604,
+							  "percentheatrate":0.29,
+							  "perubahan":1.0,
+							  "rekomendasi":{
+								 "indicator":[
+									"b4"
+								 ],
+								 "recom_rendal":[
+									"c4"
+								 ],
+								 "recom_engineering":[
+									"f4"
+								 ],
+								 "cause":[
+									"a4"
+								 ],
+								 "recom_operation":[
+									"d4"
+								 ],
+								 "recom_maintenance":[
+									"e4"
+								 ]
+							  },
+							  "deviasi":719.5762290999988,
+							  "baselineheatrate":8.95
+						   }
 						},
-						"38" : {
-							"perubahan" : "value",
-							"percentheatrate" : "value",
-							"baselineheatrate" : "value",
-							"polaritas" : "value",
-							"deviasi" : "value",
-							"gap_percentheatrate" : "value",
-							"gap_kCal/kWh" : "value",
-							"rekomendasi" : "value"
-						},
-						"39" : {
-							"perubahan" : "value",
-							"percentheatrate" : "value",
-							"baselineheatrate" : "value",
-							"polaritas" : "value",
-							"deviasi" : "value",
-							"gap_percentheatrate" : "value",
-							"gap_kCal/kWh" : "value",
-							"rekomendasi" : "value"
-						},
-						"40" : {
-							"perubahan" : "value",
-							"percentheatrate" : "value",
-							"baselineheatrate" : "value",
-							"polaritas" : "value",
-							"deviasi" : "value",
-							"gap_percentheatrate" : "value",
-							"gap_kCal/kWh" : "value",
-							"rekomendasi" : "value"
-						},
-						"43" : {
-							"perubahan" : "value",
-							"percentheatrate" : "value",
-							"baselineheatrate" : "value",
-							"polaritas" : "value",
-							"deviasi" : "value",
-							"gap_percentheatrate" : "value",
-							"gap_kCal/kWh" : "value",
-							"rekomendasi" : "value"
-						}
+						"1":-215.12464650000064,
+						"2":3230.79,
+						"3":1.0,
+						"4":1.0,
+						"5":2990.4226118,
+						"6":1.0,
+						"7":0.925601048598021,
+						"8":2990.4226118,
+						"9":1068.7223729999998,
+						"40":1068.7223729999998,
+						"41":1456.4301713999978,
+						"42":0.6222868000000015,
+						"20":-1.0,
+						"21":3335.8766275999997,
+						"43":728.5262290999989
+					 }
+				
+					
+				
+				$.each(output.baseline, function (index, item) {
+					// while(output.baselineheatrate.hasOwnProperty(idx))){
+					// }
+					if(index == 8) {
+						var baseline_html =  "<span>" +"Gap = "+output.baseline[index].gap + "</span>"
+										+"<br>" + "<span>" + "Baselined = " + output.baseline[index].baselined+ "</span>" + "<br>";
+						$('#baseline').append(baseline_html);
+						return true;
 					}
-				}
-				// data = jsonStr;
-				// var json_data = {"2013-01-21":1,"2013-01-22":7};
-				var result = [];
-
-				// for(var i in data){
-				// 	result.push([i, data [i]]);
-
-				// }
-				console.log(output.length);
-				console.log(output);
-				// data = JSON.parse(data);
-				$.each(output, function (index, item) {
 					var eachrow = "<tr>"
-								+ "<td>" + output.baseline[43].deviasi + "</td>"
-								+ "<td>" + item[2] + "</td>"
-								+ "<td>" + item[3] + "</td>"
-								+ "<td>" + item[4] + "</td>"
+								+ "<td style='text-align:center;'>" + index+ "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].perubahan+ "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].percentheatrate + "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].baselineheatrate+ "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].deviasi + "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].gap_percentheatrate + "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].gap_percentheatrate + "</td>"
+
+								// + "<td style='text-align:center;'>" + output.baseline[index].gap_kCal'/'kWh+ "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].polaritas+ "</td>"
+
+
 								+ "</tr>";
 					$('#tbody').append(eachrow);
+					// idx = idx + 1
+
+					// if(output.baseline.hasOwnProperty(idx)){
+					// 	idx = idx + 1
+
+					// }
+					// else{
+					// 	idx = idx + 3;
+					// }
 			   });
 
 			 

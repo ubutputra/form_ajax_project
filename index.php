@@ -3,8 +3,8 @@
 	<title>Form Input API</title>
 	
 	<!-- Load librari/plugin jquery nya -->
-	<script src="js/jquery.min.js" type="text/javascript"></script>
-	
+	<!-- <script src="js/jquery.min.js" type="text/javascript"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<!-- Load File javascript config.js -->
 	<script src="js/config.js" type="text/javascript"></script>
 </head>
@@ -60,7 +60,7 @@
 		<tr>
 			<td><b>Start Time</b></td>
 			<td>
-				<input type="datetime-local" name="start" id="start" step="1">
+				<input type="datetime-local" name="start" id="start">
 
 
 				<!-- <div id="loading" style="margin-top: 15px;">
@@ -72,7 +72,7 @@
 		<tr>
 			<td><b>Finish Time</b></td>
 			<td>
-			<input type="datetime-local" name="end" id="end" step="1">
+			<input type="datetime-local" name="end" id="end">
 
 				<!-- <div id="loading" style="margin-top: 15px;">
 					<img src="images/loading.gif" width="18"> <small>Loading...</small>
@@ -84,40 +84,66 @@
 				<input type="submit" value="submit" id="form-btn">
 			</td>
 		</tr>
-		
+	
+		<button type="button" id="button">Click Me!</button>
+
 
 	</form>
 	</table>
 	<div id="loading2" style="margin-top: 15px;">
 					<img src="images/loading.gif" width="18"> <small>Loading...</small>
 	</div>
-	<div>
+	<!-- <div>
 		<h3>Formula</h3>
-	</div>
+	</div> -->
 
 	<div>
 		<h3>Baseline</h3>
+		<div id="baseline">
+			<!-- <span>haii</span> -->
+		</div>
 	</div>
-	<div>
-		<h3>Rekomendasi</h3>
-	</div>
-
 	
+
+				
 
 	<table style="width: 100%">
      <thead>
           <tr>
                <th>No</th>
-               <th>Parameter</th>
-               <th>Unit</th>
-               <th>Aktual</th>
+               <!-- <th>Parameter</th>
+               <th>Unit</th> -->
+			   <th>Perubahan</th>
+			   <th>%  Heatrate</th>	
+			   <th>baseline Heatrate</th>
 			   <th>Deviasi</th>
+			   <th>% Gap Heatrate</th>
+			   <th>Gap kCal/kWh</th>
+			   <th>Polaritas</th>
 
            </tr>
      </thead>
      <tbody id="tbody">
      </tbody>
 	</table>
+	<div>
+		<h3>Rekomendasi</h3>
+	</div>
+	<table style="width: 100%">
+     <thead>
+          <tr>
+               <th>Indikator</th>
+			   <th>recom_rendal</th>
+			   <th>recom_engineering</th>	
+			   <th>cause</th>
+			   <th>recom_operation</th>
+			   <th>recom_maintenance</th>
+			   
 
+           </tr>
+     </thead>
+     <tbody id="table_rekom">
+     </tbody>
+	</table>
 </body>
 </html>
