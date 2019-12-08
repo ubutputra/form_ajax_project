@@ -2,7 +2,10 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 	// Kita sembunyikan dulu untuk loadingnya
 	$("#loading").hide();
 	$("#loading2").hide();
-
+	$("#text-baseline").hide();
+	$("#table-baseline").hide();
+	$("#text-rekom").hide();
+	$("#table-rekom").hide();
 	$("#form").submit(function(e) {
 		console.log('masuk form')
 		e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -56,7 +59,10 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 				console.log('haii sukses');
 				console.log(output);
 				$("#loading2").hide(); 
-					
+				$("#text-baseline").show();
+				$("#table-baseline").show();
+				$("#text-rekom").show();
+				$("#table-rekom").show();
 				var save_index = [];
 				$.each(output.baseline, function (index) {
 					// while(output.baselineheatrate.hasOwnProperty(idx))){

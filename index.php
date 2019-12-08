@@ -99,7 +99,7 @@
 		<h3>Formula</h3>
 	</div> -->
 
-	<div>
+	<div id="text-baseline">
 		<h3>Baseline</h3>
 		<div id="baseline">
 			<!-- <span>haii</span> -->
@@ -109,7 +109,7 @@
 
 				
 
-	<table style="width: 100%" class="table table-striped">
+	<table style="width: 100%" class="table table-striped" id="table-baseline">
      <thead align="center">
           <tr>
                <th>No</th>
@@ -128,10 +128,10 @@
      <tbody id="tbody">
      </tbody>
 	</table>
-	<div>
+	<div id ="text-rekom">
 		<h3>Rekomendasi</h3>
 	</div>
-	<table style="width: 100%" class="table table-striped">
+	<table style="width: 100%" class="table table-striped" id="table-rekom">
      <thead align="center">
           <tr>
 		  		<th>No</th>
