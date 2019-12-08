@@ -63,7 +63,7 @@
 				<input type="datetime-local" name="start" id="start">
 
 
-				<!-- <div id="loading" style="margin-top: 15px;">
+				<!-- <div id="loading" style="margin-top: 1	5px;">
 					<img src="images/loading.gif" width="18"> <small>Loading...</small>
 				</div> -->
 			</td>
@@ -85,7 +85,7 @@
 			</td>
 		</tr>
 	
-		<button type="button" id="button">Click Me!</button>
+		<!-- <button type="button" id="button">Click Me!</button> -->
 
 
 	</form>
