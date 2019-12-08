@@ -7,9 +7,11 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<!-- Load File javascript config.js -->
 	<script src="js/config.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
-	<h1>Form Input API</h1>
+	<h1 align="center">Form Input </h1>
 	<hr>
 	
 	<table cellpadding="8">
@@ -81,7 +83,7 @@
 		</tr>
 		<tr>
 			<td>
-				<input type="submit" value="submit" id="form-btn">
+				<input class="btn btn-primary" type="submit" value="Submit" id="form-btn">
 			</td>
 		</tr>
 	
@@ -107,15 +109,15 @@
 
 				
 
-	<table style="width: 100%">
-     <thead>
+	<table style="width: 100%" class="table table-striped">
+     <thead align="center">
           <tr>
                <th>No</th>
                <!-- <th>Parameter</th>
                <th>Unit</th> -->
 			   <th>Perubahan</th>
 			   <th>%  Heatrate</th>	
-			   <th>baseline Heatrate</th>
+			   <th>Baseline Heatrate</th>
 			   <th>Deviasi</th>
 			   <th>% Gap Heatrate</th>
 			   <th>Gap kCal/kWh</th>
@@ -129,16 +131,17 @@
 	<div>
 		<h3>Rekomendasi</h3>
 	</div>
-	<table style="width: 100%">
-     <thead>
+	<table style="width: 100%" class="table table-striped">
+     <thead align="center">
           <tr>
 		  		<th>No</th>
 				<th>Indikator</th>
-				<th>recom_rendal</th>
-				<th>recom_engineering</th>	
-				<th>cause</th>
-				<th>recom_operation</th>
-				<th>recom_maintenance</th>
+				<th>Recom_rendal</th>
+				<th>Recom_engineering</th>	
+				<th>Cause</th>
+				<th>Deviation</th>
+				<th>Recom_operation</th>
+				<th>Recom_maintenance</th>
 			   
 
            </tr>
