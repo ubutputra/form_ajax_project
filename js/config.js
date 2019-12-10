@@ -164,13 +164,13 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						
 						// console.log(item2.index2);
 						var save2 = ''
-						for (i = 0; i < item2.length; ++i) {
+						for (i = 0; i < item2.length; i++) {
 							// do something with `substr[i]`
 							console.log(item2.length);
-							if(item2[i+1] === null){
-								item2[i+1] = '-';
+							if(item2[i] === null){
+								item2[i] = '-';
 							}
-							var save = item2[i+1];
+							var save = item2[i];
 						
 							 save2 = save2 + save ;
 						}
