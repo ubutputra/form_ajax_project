@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Form Input API</title>
-	
+	<!-- commenr -->
 	<!-- Load librari/plugin jquery nya -->
 	<!-- <script src="js/jquery.min.js" type="text/javascript"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
