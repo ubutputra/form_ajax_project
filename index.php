@@ -11,7 +11,7 @@
 	
 </head>
 <body class="text-white " style="background-color:#161719">
-	<h1 align="center">Form Input </h1>
+	<h1 align="center">Parameter dan Baseline </h1>
 	<hr>
 	
 	<table cellpadding="8">
@@ -95,9 +95,28 @@
 	<div id="loading2" style="margin-top: 15px;">
 					<img src="images/loading.gif" width="18"> <small>Loading...</small>
 	</div>
-	<!-- <div>
-		<h3>Formula</h3>
-	</div> -->
+	<div id="text-parameter">
+		<h3>Parameter</h3>
+	</div>
+	<table style="width: 100%" class="table table-striped" id="table-parameter">
+     <thead align="center">
+          <tr>
+               <th>No</th>
+			   <th>Value</th>
+			   <!-- <th>%  Heatrate</th>	
+			   <th>Baseline Heatrate</th>
+			   <th>Deviasi</th>
+			   <th>% Gap Heatrate</th>
+			   <th>Gap kCal/kWh</th>
+			   <th>Polaritas</th> -->
+
+           </tr>
+     </thead>
+     <tbody id="table_parameter">
+     </tbody>
+	</table>
+
+
 
 	<div id="text-baseline">
 		<h3>Baseline</h3>

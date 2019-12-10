@@ -6,8 +6,11 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 	$("#table-baseline").hide();
 	$("#text-rekom").hide();
 	$("#table-rekom").hide();
+	$("#text-parameter").hide();
+	$("#table-parameter").hide();
+
 	$("#form").submit(function(e) {
-		console.log('masuk form')
+		// console.log('masuk form')
 		e.preventDefault(); // avoid to execute the actual submit of the form.
 		$("#loading2").show(); 
 		var unit = $("#unit").val();
@@ -18,7 +21,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 		var end = $("#end").val();
 		end = end.concat(':00')
 		end = end.replace("T"," ");
-		console.log(end);
+		// console.log(end);
 		var uri = 'http://172.16.33.157:8099/';
 		
 
@@ -56,14 +59,47 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 			},
 			success: function(output){ // Ketika proses pengiriman berhasil
 
-				console.log('haii sukses');
+				console.log('success');
+				//log debug json
 				console.log(output);
 				$("#loading2").hide(); 
 				$("#text-baseline").show();
 				$("#table-baseline").show();
 				$("#text-rekom").show();
 				$("#table-rekom").show();
+				$("#text-parameter").show();
+				$("#table-parameter").show();
+
 				var save_index = [];
+				$.each(output, function (index) {
+					// while(output.baselineheatrate.hasOwnProperty(idx))){
+					// }
+					// save_index.push = index;
+					// console.log(output[index]);
+					if(index === 'baseline') {
+						// var baseline_html =  "<span>" +"Gap = "+output.baseline[index].gap + "</span>"
+						// 				+"<br>" + "<span>" + "Baselined = " + output.baseline[index].baselined+ "</span>" + "<br>";
+						// $('#baseline').append(baseline_html);
+						return true;
+					}
+					var eachrow = "<tr>"
+								+ "<td style='text-align:center;'>" + index+ "</td>"
+								+ "<td style='text-align:center;'>" + output[index]+ "</td>"
+							
+
+
+								+ "</tr>";
+					$('#table_parameter').append(eachrow);
+					// idx = idx + 1
+
+					// if(output.baseline.hasOwnProperty(idx)){
+					// 	idx = idx + 1
+
+					// }
+					// else{
+					// 	idx = idx + 3;
+					// }
+			   });
 				$.each(output.baseline, function (index) {
 					// while(output.baselineheatrate.hasOwnProperty(idx))){
 					// }
@@ -122,12 +158,28 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 					var save_baseline = this;
 					// console.log(save_baseline);
 					$.each(item.rekomendasi, function(index2,item2){
-						console.log("iter2")
+						// console.log("iter2")
 
 						// console.log(item2);	
 						
 						// console.log(item2.index2);
-						var row2 = "<td style='text-align:center;'>" + item2[0]+ "</td>";
+						var save2 = ''
+						for (i = 0; i < item2.length; ++i) {
+							// do something with `substr[i]`
+							console.log(item2.length);
+							if(item2[i+1] === null){
+								item2[i+1] = '-';
+							}
+							var save = item2[i+1];
+						
+							 save2 = save2 + save ;
+						}
+						open_tag = "<td style='text-align:center;'>" + save2 + "<br>";
+						// if(item2[0] === null){
+						// 	item2[0] = '-';
+						// }
+						var row2 = open_tag + "</td>";
+						console.log(row2);
 						// console.log("iter2");
 						// console.log(index2);
 						// console.log(item2);	
@@ -180,7 +232,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 		});
 	});
 
-
+	//testing
 	$("#button").click(function(){
 		console.log("hiyaaa");
 		// Ketika user mengganti atau memilih data district
