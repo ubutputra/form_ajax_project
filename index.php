@@ -3,21 +3,24 @@
 	<title>Form Input API</title>
 	<!-- commenr -->
 	<!-- Load librari/plugin jquery nya -->
-	<!-- <script src="js/jquery.min.js" type="text/javascript"></script> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 	<!-- Load File javascript config.js -->
 	<script src="js/config.js" type="text/javascript"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 	
 </head>
 <body class="text-white " style="background-color:#161719">
 	<h1 align="center">Parameter dan Baseline </h1>
-	<hr>
 	
-	<table cellpadding="8">
+	<table cellpadding="8" style="margin-left:15px;margin-top:15px;">
 	<!-- <form action="http://172.16.34.11:8099/?district={district}&unit={unit}&start={start}&end={end}" id="form"> -->
 	<!-- <form action="submit_form.php" id="form"> -->
-	<form id="form">
+	<form id="form" >
 
 
 
@@ -59,9 +62,18 @@
 				</div>
 			</td>
 		</tr>
-		<tr>
+		<tr>	
 			<td><b>Start Time</b></td>
 			<td>
+				<!-- <div class='col-sm-6'>
+
+				<div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+				</div> -->
 				<input type="datetime-local" name="start" id="start">
 
 
@@ -150,7 +162,7 @@
 	<div id ="text-rekom">
 		<h3>Rekomendasi</h3>
 	</div>
-	<table style="width: 100%" class="table table-striped" id="table-rekom">
+	<table style="width: 100%; white-space:pre-wrap; word-wrap:break-word;" class="table table-striped" id="table-rekom">
      <thead align="center">
           <tr>
 		  		<th>No</th>
@@ -168,5 +180,13 @@
      <tbody id="table_rekom">
      </tbody>
 	</table>
+
+	<!-- <script>
+		$('#datetimepicker1').datetimepicker({
+		defaultDate: new Date(),
+		format: 'DD/MM/YYYY hh:mm:ss A',
+		sideBySide: true
+	});
+	</script> -->
 </body>
 </html>

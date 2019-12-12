@@ -145,13 +145,13 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						return true;
 					}
 					//add number index
-					var row2 =  "<td style='text-align:center;'>" +index+ "</td>" ;
+					var row2 =  "<td style='text-align:left;'>" +index+ "</td>" ;
 						$('#table_rekom').append(row2);
 
 					//open tag rekom
 					
 					if(item.rekomendasi	 === "cek alat ukur"){
-						var row2 =  "<td style='text-align:center;'>" +"cek alat ukur"+ "</td>" + "</tr>";
+						var row2 =  "<td style='text-align:left;'>" +"cek alat ukur"+ "</td>" + "</tr>";
 						$('#table_rekom').append(row2);
 						return true
 					}
@@ -174,7 +174,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						
 							 save2 = save2 + save ;
 						}
-						open_tag = "<td style='text-align:center;'>" + save2 + "<br>";
+						open_tag = "<td style='text-align:left;'>" + save2 + "<br>";
 						// if(item2[0] === null){
 						// 	item2[0] = '-';
 						// }
@@ -424,13 +424,13 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						return true;
 					}
 					//add number index
-					var row2 =  "<td style='text-align:center;'>" +index+ "</td>" ;
+					var row2 =  "<td >" +index+ "</td>" ;
 						$('#table_rekom').append(row2);
 
 					//open tag rekom
 					
 					if(item.rekomendasi	 === "cek alat ukur"){
-						var row2 =  "<td style='text-align:center;'>" +"cek alat ukur"+ "</td>" + "</tr>";
+						var row2 =  "<td >" +"cek alat ukur"+ "</td>" + "</tr>";
 						$('#table_rekom').append(row2);
 						return true
 					}
@@ -442,7 +442,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						// console.log(item2);	
 						
 						// console.log(item2.index2);
-						var row2 = "<td style='text-align:center;'>" + item2[0]+ "</td>";
+						var row2 = "<td >" + item2[0]+ "</td>";
 						// console.log("iter2");
 						// console.log(index2);
 						// console.log(item2);	
