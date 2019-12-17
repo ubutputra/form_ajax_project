@@ -10,7 +10,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 	$("#table-parameter").hide();
 
 	$("#form").submit(function(e) {
-		// console.log('masuk form')
+		console.log('masuk form')
 		e.preventDefault(); // avoid to execute the actual submit of the form.
 		$("#loading2").show(); 
 		var unit = $("#unit").val();
