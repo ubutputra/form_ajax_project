@@ -1,6 +1,6 @@
 <?php
 $host = "172.16.34.11"; // Nama hostnya
-$username = "gpadmin"; // Username
+$username = "postgres"; // Username
 $password = "jangandiingat"; // Password (Isi jika menggunakan password)
 $database = "pjbs_input"; // Nama databasenya
 
