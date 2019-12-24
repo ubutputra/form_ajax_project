@@ -10,7 +10,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 	$("#table-parameter").hide();
 
 	$("#form").submit(function(e) {
-		console.log('masuk form')
+		// console.log('masuk form')
 		e.preventDefault(); // avoid to execute the actual submit of the form.
 		$("#loading2").show(); 
 		var unit = $("#unit").val();
@@ -61,7 +61,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 
 				console.log('success');
 				//log debug json
-				console.log(output);
+				// console.log(output);
 				$("#loading2").hide(); 
 				$("#text-baseline").show();
 				$("#table-baseline").show();
@@ -212,7 +212,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						var save2 = ''
 						for (i = 0; i < item2.length; i++) {
 							// do something with `substr[i]`
-							console.log(item2.length);
+							// console.log(item2.length);
 							if(item2[i] === null){
 								item2[i] = '-';
 							}
@@ -231,7 +231,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						// 	item2[0] = '-';
 						// }
 						var row2 = open_tag + "</td>";
-						console.log(row2);
+						// console.log(row2);
 						// console.log("iter2");
 						// console.log(index2);
 						// console.log(item2);	
