@@ -61,7 +61,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 
 				console.log('success');
 				//log debug json
-				// console.log(output);
+				console.log(output);
 				$("#loading2").hide(); 
 				$("#text-baseline").show();
 				$("#table-baseline").show();
@@ -73,53 +73,54 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 				var save_index = [];
 				//looping data parameter
 				$.each(output, function (index) {
-					var parameter = [ 
-						"MVAR Generator",
-						"MW Generator",
-						"MW Netto",
-						"Pemakaian sendiri MW",
-						"Pemakaian Batubara / coal flow",
-						"Nilai Kalor batubara (kcal/kg)",
-						"Gross Plant Heat Rate IO (kcal/kwh)",
-						"Netto Plant Heat Rate IO (kcal/kwh)",
-						"Tekanan Main Steam",
-						"Temperatur Main Steam",
-						"Main Steam Enthalphy",
-						"Main Steam Flow 1",
-						"Main Steam Flow 2",
-						"Main Steam Flow 3",
-						"Total Main Steam Flow (Ton)",
-						"Tekanan Final Feedwater 1",
-						"Tekanan Final Feedwater 2",
-						"Rata2 Tekanan Final Feedwater",
-						"Temperatur Final Feedwater",
-						"Final Feedwater Enthalphy",
-						"Final Feedwater Flow 1",
-						"Final Feedwater Flow 2",
-						"Total Final Feedwater Flow (Ton)",
-						"Tekanan Superheater Spray 1St",
-						"Tekanan Superheater Spray 2nd",
-					    "Rata2 Tekanan Superheater Spray",
-						"Temperature Superheater Spray",
-						"Superheater Spray Enthalphy",
-						"Superheater Spray Flow 1st",
-						"Superheater Spray Flow 2nd",
-						"Total SH Spray Flow",
-						"Turbine Heat Rate (kcal/kwh)",
-						"Steam rate (Ton/ MW)",
-						"Spesific Fuel Consumption (Ton/MW)",
-						"Total Air Flow",
-						"Total Fuel Flow",
-						"Total Air Flow Ratio",
-						"TEMPERATURE EXIT FLUE GAS (°C) Left",
-						"TEMPERATURE EXIT FLUE GAS (°C) Right",
-						"Rata2 TEMPERATURE EXIT FLUE GAS (°C)",
-						"Temperature Main Steam (°C)",
-						"Pressure Main Steam (Mpa)",
-						"BOILER Outlet Lelf O2 CONTENT",
-						"BOILER Outlet Right O2 CONTENT",
-						"Rata2 O2 FLUE GAS EXIT (%)",
-											]
+				
+											var parameter2 = [ 
+												"MVAR Generator",
+												"MW Generator",
+												"MW Netto",
+												"Pemakaian sendiri MW",
+												"Pemakaian Batubara / coal flow",
+												"Nilai Kalor batubara (kcal/kg)",
+												"Gross Plant Heat Rate IO (kcal/kwh)",
+												"Netto Plant Heat Rate IO (kcal/kwh)",
+												"Tekanan Main Steam",
+												"Temperatur Main Steam",
+												"Main Steam Enthalphy",
+												"Main Steam Flow 1",
+												"Main Steam Flow 2",
+												"Main Steam Flow 3",
+												"Total Main Steam Flow (Ton)",
+												"Tekanan Final Feedwater 1",
+												"Tekanan Final Feedwater 2",
+												"Rata2 Tekanan Final Feedwater",
+												"Temperatur Final Feedwater",
+												"Final Feedwater Enthalphy",
+												"Final Feedwater Flow 1",
+												"Final Feedwater Flow 2",
+												"Total Final Feedwater Flow (Ton)",
+												"Tekanan Superheater Spray 1St",
+												"Tekanan Superheater Spray 2nd",
+												"Rata2 Tekanan Superheater Spray",
+												"Temperature Superheater Spray",
+												"Superheater Spray Enthalphy",
+												"Superheater Spray Flow 1st",
+												"Superheater Spray Flow 2nd",
+												"Total SH Spray Flow",
+												"Turbine Heat Rate (kcal/kwh)",
+												"Steam rate (Ton/ MW)",
+												"Spesific Fuel Consumption (Ton/MW)",
+												"Total Air Flow",
+												"Total Fuel Flow",
+												"Total Air Flow Ratio",
+												"TEMPERATURE EXIT FLUE GAS (°C) Left",
+												"TEMPERATURE EXIT FLUE GAS (°C) Right",
+												"Temperature Exit Flue Gas (°C)",
+												" Main Steam Temperature (°C)",
+												"Main Steam Pressure (Mpa)",
+												"BOILER Outlet Lelf O2 CONTENT",
+												"BOILER Outlet Right O2 CONTENT",
+												"Outlet 02 Flue Gas (%)",
+																	];
 					// while(output.baselineheatrate.hasOwnProperty(idx))){
 					// }
 					// save_index.push = index;
@@ -131,9 +132,9 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						return true;
 					}
 					var eachrow = "<tr>"
-								+ "<td style='text-align:center;'>" + index+ "</td>"
-								+ "<td style='text-align:center;'>" + parameter[index-1]+ "</td>"
-								+ "<td style='text-align:center;'>" + output[index]+ "</td>"
+								+ "<td style='text-align:left;'>" + index+ "</td>"
+								+ "<td style='text-align:left;'>" + parameter2[index-1]+ "</td>"
+								+ "<td style='text-align:left;'>" + output[index]+ "</td>"
 								+ "</tr>";
 					$('#table_parameter').append(eachrow);
 					// idx = idx + 1
@@ -149,6 +150,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 				$.each(output.baseline, function (index) {
 					// while(output.baselineheatrate.hasOwnProperty(idx))){
 					// }
+					
 					save_index.push = index;
 					if(index == 8) {
 						var baseline_html =  "<span>" +"Gap = "+output.baseline[index].gap + "</span>"
@@ -157,10 +159,13 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						return true;
 					}
 					var eachrow = "<tr>"
-								+ "<td style='text-align:center;'>" + index+ "</td>"
+								+ "<td style='text-align:center;'>" + output.baseline[index].deskripsi+ "</td>"
 								+ "<td style='text-align:center;'>" + output.baseline[index].perubahan+ "</td>"
 								+ "<td style='text-align:center;'>" + output.baseline[index].percentheatrate + "</td>"
 								+ "<td style='text-align:center;'>" + output.baseline[index].baselineheatrate+ "</td>"
+								//aktual
+								+ "<td style='text-align:center;'>" + output[index]+ "</td>"
+
 								+ "<td style='text-align:center;'>" + output.baseline[index].deviasi + "</td>"
 								+ "<td style='text-align:center;'>" + output.baseline[index].gap_percentheatrate + "</td>"
 

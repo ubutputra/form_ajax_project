@@ -186,7 +186,7 @@
 	<div id="text-parameter">
 		<h3>Parameter</h3>
 	</div>
-	<table style="width: 100%" class="table table-striped table-dark" id="table-parameter">
+	<table style="width: 50%" class="table table-striped table-dark" id="table-parameter">
      <thead align="center">
           <tr>
                <th>No</th>
@@ -219,18 +219,37 @@
 
 	<table style="width: 100%" class="table table-striped table-dark" id="table-baseline">
      <thead align="center">
-          <tr>
-               <th>No</th>
-               <!-- <th>Parameter</th>
+        	<tr>
+               <!-- <th rowspan="2">Nama Parameter</th>
+               <th>Parameter</th>
                <th>Unit</th> -->
-			   <th>Perubahan</th>
+			   <!-- <th colspan="2">Faktor Perubah</th> -->
+			   <!-- <th>Perubahan</th>
 			   <th>%  Heatrate</th>	
 			   <th>Baseline Heatrate</th>
+			   <th>Aktual</th>
+
 			   <th>Deviasi</th>
 			   <th>% Gap Heatrate</th>
 			   <th>Gap kCal/kWh</th>
-			   <th>Polaritas</th>
+			   <th>Polaritas</th> -->
+			   <tr> 
+					<th  rowspan="2" style="text-align:center;vertical-align:top;">Nama Parameter</th>
+					<th  colspan="2">Faktor Perubah</th>
+					<th >Baseline</th>
+					<th  rowspan="2" style="text-align:center;vertical-align:top;">Aktual</th>
+					<th  rowspan="2" style="text-align:center;vertical-align:top;">Deviasi</th>
+					<th  colspan="2">Gap Heat Rate</th>
+					<th  rowspan="2" style="text-align:center;vertical-align:top;">Polaritas</th>
 
+				</tr>
+				<tr>
+					<td >Perubahan</td>
+					<td >%Heatrate</td>
+					<td >Heatrate</td>
+					<td >%HR</td>
+					<td >KCal/kWh</td>
+				</tr>
            </tr>
      </thead>
      <tbody id="tbody">
