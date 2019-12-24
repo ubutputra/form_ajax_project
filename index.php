@@ -190,6 +190,7 @@
      <thead align="center">
           <tr>
                <th>No</th>
+			   <th>Parameter</th>
 			   <th>Value</th>
 			   <!-- <th>%  Heatrate</th>	
 			   <th>Baseline Heatrate</th>

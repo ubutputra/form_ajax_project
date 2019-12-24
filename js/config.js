@@ -71,7 +71,55 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 				$("#table-parameter").show();
 
 				var save_index = [];
+				//looping data parameter
 				$.each(output, function (index) {
+					var parameter = [ 
+						"MVAR Generator",
+						"MW Generator",
+						"MW Netto",
+						"Pemakaian sendiri MW",
+						"Pemakaian Batubara / coal flow",
+						"Nilai Kalor batubara (kcal/kg)",
+						"Gross Plant Heat Rate IO (kcal/kwh)",
+						"Netto Plant Heat Rate IO (kcal/kwh)",
+						"Tekanan Main Steam",
+						"Temperatur Main Steam",
+						"Main Steam Enthalphy",
+						"Main Steam Flow 1",
+						"Main Steam Flow 2",
+						"Main Steam Flow 3",
+						"Total Main Steam Flow (Ton)",
+						"Tekanan Final Feedwater 1",
+						"Tekanan Final Feedwater 2",
+						"Rata2 Tekanan Final Feedwater",
+						"Temperatur Final Feedwater",
+						"Final Feedwater Enthalphy",
+						"Final Feedwater Flow 1",
+						"Final Feedwater Flow 2",
+						"Total Final Feedwater Flow (Ton)",
+						"Tekanan Superheater Spray 1St",
+						"Tekanan Superheater Spray 2nd",
+					    "Rata2 Tekanan Superheater Spray",
+						"Temperature Superheater Spray",
+						"Superheater Spray Enthalphy",
+						"Superheater Spray Flow 1st",
+						"Superheater Spray Flow 2nd",
+						"Total SH Spray Flow",
+						"Turbine Heat Rate (kcal/kwh)",
+						"Steam rate (Ton/ MW)",
+						"Spesific Fuel Consumption (Ton/MW)",
+						"Total Air Flow",
+						"Total Fuel Flow",
+						"Total Air Flow Ratio",
+						"TEMPERATURE EXIT FLUE GAS (°C) Left",
+						"TEMPERATURE EXIT FLUE GAS (°C) Right",
+						"Rata2 TEMPERATURE EXIT FLUE GAS (°C)",
+						"Temperature Main Steam (°C)",
+						"Pressure Main Steam (Mpa)",
+						"BOILER Outlet Lelf O2 CONTENT",
+						"BOILER Outlet Right O2 CONTENT",
+						"Rata2 O2 FLUE GAS EXIT (%)",
+											]
 					// while(output.baselineheatrate.hasOwnProperty(idx))){
 					// }
 					// save_index.push = index;
@@ -84,10 +132,8 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 					}
 					var eachrow = "<tr>"
 								+ "<td style='text-align:center;'>" + index+ "</td>"
+								+ "<td style='text-align:center;'>" + parameter[index-1]+ "</td>"
 								+ "<td style='text-align:center;'>" + output[index]+ "</td>"
-							
-
-
 								+ "</tr>";
 					$('#table_parameter').append(eachrow);
 					// idx = idx + 1
@@ -171,10 +217,16 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 								item2[i] = '-';
 							}
 							var save = item2[i];
-						
-							 save2 = save2 + save ;
+							var breaktext = "";
+							if(i==0){
+								breaktext = "";
+							}
+							else{
+								breaktext = "<br><br>"
+							}
+							save2 = save2 + breaktext + save ;
 						}
-						open_tag = "<td style='text-align:left;'>" + save2 + "<br>";
+						open_tag = "<td style='text-align:left;'>" + save2 + "  " +"<br>";
 						// if(item2[0] === null){
 						// 	item2[0] = '-';
 						// }
