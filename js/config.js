@@ -196,7 +196,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						return true;
 					}
 					//add number index
-					var row2 =  "<td style='text-align:left;'>" +index+ "</td>" ;
+					var row2 =  "<td style='text-align:left;'>" +output.baseline[index].deskripsi+ "</td>" ;
 						$('#table_rekom').append(row2);
 
 					//open tag rekom
