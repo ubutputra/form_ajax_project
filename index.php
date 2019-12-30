@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Form Input API</title>
@@ -5,7 +6,26 @@
 	<!-- Load librari/plugin jquery nya -->
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 	<!-- Load File javascript config.js -->
+	<link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="assets/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="assets/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="assets/plugins/summernote/summernote-bs4.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css.map">
+
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 
 	<script src="css/moment.min.js"></script>
@@ -14,7 +34,6 @@
 	<script src="css/bootstrap.min.js"></script>
 	<script src="css/bootstrap-datetimepicker.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
-
 
 
 	<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.js">
@@ -28,13 +47,13 @@
 	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 	
 </head>
-<body class="text-white " style="background-color:#161719">
-	<h1 align="center">Parameter dan Baseline </h1>
-
+<body  style="background-color:#161719">
+	<h1 align="center" class="text-white">Parameter dan Baseline </h1>
+	
 	<form id="form">
 		<div class="form-group row">
 			<!-- <label for="staticEmail" class="mr-sm-2 sr-only">Email</label> -->
-			<label class="col-sm-1 col-form-label" >District</label>
+			<label class="col-sm-1 col-form-label text-white" >District</label>
 			<div class="col-sm-3">
 				<select class="custom-select my-1 mr-sm-2" id="district" name="district">
 					<option value="">pilih</option>
@@ -58,7 +77,7 @@
 		</div>
 		<div class="form-group row">
 			<!-- <label for="staticEmail" class="mr-sm-2 sr-only">Email</label> -->
-			<label class="col-sm-1 col-form-label" >Unit</label>
+			<label class="col-sm-1 col-form-label text-white" >Unit</label>
 			<div class="col-sm-3">
 				<select class="custom-select my-1 mr-sm-2" id="unit" name="unit">
 					<option value="">pilih</option>
@@ -71,9 +90,10 @@
 		</div>
 
 		<div class="form-group row">
-			<label class="col-sm-1 col-form-label" >Start Time</label>
+			<label class="col-sm-1 col-form-label text-white" >Start Time</label>
 			<div class="col-sm-3">
-				<input type="datetime-local" class="form-control" id="start" name="start">
+				<input type="text" class="form-control" id="start" name="datetimes" >
+				<!-- <input   type="datetime-local" class="form-control" id="start"  > -->
 
 				
 	  		</div>
@@ -96,9 +116,10 @@
 
 		<div class="form-group row">
 			<!-- <label for="staticEmail" class="mr-sm-2 sr-only">Email</label> -->
-			<label class="col-sm-1 col-form-label" >finish Time</label>
+			<label class="col-sm-1 col-form-label text-white" >finish Time</label>
 			<div class="col-sm-3">
-				<input type="datetime-local" class="form-control" id="end" name="end">
+				<input type="text" class="form-control" id="end" name="datetimes">
+				<!-- <input   type="datetime-local" class="form-control" id="end"  > -->
 
 				
 	  		</div>
@@ -179,14 +200,20 @@
 		<!-- <button type="button" id="button">Click Me!</button> -->
 	</form>
 	</table>
+	<h3 class="text-white">
+      the value for number is:
+      <script type="text/javascript">
+        document.write(start)
+      </script>
+    </h3>
 	<!-- end dari form view -->
 	<div id="loading2" style="margin-top: 15px;">
 					<img src="images/loading.gif" width="18"> <small>Loading...</small>
 	</div>
 	<div id="text-parameter">
-		<h3>Parameter</h3>
+		<h3 class="text-white">Parameter</h3>
 	</div>
-	<table style="width: 50%" class="table table-striped table-dark" id="table-parameter">
+	<table style="width: 50%" class="table table-striped table-dark text-white" id="table-parameter">
      <thead align="center">
           <tr>
                <th>No</th>
@@ -208,7 +235,7 @@
 
 
 	<div id="text-baseline">
-		<h3>Baseline</h3>
+		<h3 class="text-white">Baseline</h3>
 		<div id="baseline">
 			<!-- <span>haii</span> -->
 		</div>
@@ -217,7 +244,7 @@
 
 				
 
-	<table style="width: 100%" class="table table-striped table-dark" id="table-baseline">
+	<table style="width: 100%" class="table table-striped table-dark text-white" id="table-baseline">
      <thead align="center">
         	<tr>
                <!-- <th rowspan="2">Nama Parameter</th>
@@ -256,9 +283,9 @@
      </tbody>
 	</table>
 	<div id ="text-rekom">
-		<h3>Rekomendasi</h3>
+		<h3 class="text-white">Rekomendasi</h3>
 	</div>
-	<table style="width: 100%; white-space:pre-wrap; word-wrap:break-word;" class="table table-striped table-dark" id="table-rekom">
+	<table style="width: 100%; white-space:pre-wrap; word-wrap:break-word;" class="table table-striped table-dark text-white" id="table-rekom">
      <thead align="center">
           <tr>
 		  		<th>No</th>
@@ -285,10 +312,64 @@
 		sideBySide: true
 	});
 	</script> -->
-	
-</body>
-<script type="text/javascript">
+	<!-- <script src="assets/plugins/jquery/jquery.min.js"></script> -->
+<!-- jQuery UI 1.11.4 -->
+<script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="assets/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="assets/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap
+<script src="assets/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script> -->
+<!-- jQuery Knob Chart -->
+<script src="assets/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="assets/plugins/moment/moment.min.js"></script>
+<script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="assets/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="assets/dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- <script src="assets/dist/js/pages/dashboard.js"></script> -->
+<!-- AdminLTE for demo purposes -->
+<!-- <script src="assets/dist/js/demo.js"></script> -->
+
+<script>
+$(function() {
+  $('input[name="datetimes"]').daterangepicker({
+	singleDatePicker: true,
+    showDropdowns: true,
+	timePicker24Hour: true,
+    // timePickerIncrement: 30,
+    timePicker: true,
+    locale: {
+	  format: 'DD-MM-YYYY HH:mm'
+	// format: 'YYYY-MM-DD HH:mm'
+
+    }
+  });
+});
+</script>
+
+<!-- <script type="text/javascript">
        $(document).ready(function(){
+		
+		
+		
+		
+   
           $("#form").validate({
 			rules: {
             district: {
@@ -311,7 +392,9 @@
 
 		  });
        });
-    </script>
+    </script> -->
+
+</body>
 
 
 </html>
