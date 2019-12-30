@@ -200,12 +200,7 @@
 		<!-- <button type="button" id="button">Click Me!</button> -->
 	</form>
 	</table>
-	<h3 class="text-white">
-      the value for number is:
-      <script type="text/javascript">
-        document.write(start)
-      </script>
-    </h3>
+	
 	<!-- end dari form view -->
 	<div id="loading2" style="margin-top: 15px;">
 					<img src="images/loading.gif" width="18"> <small>Loading...</small>
