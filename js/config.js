@@ -22,15 +22,15 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 		array = start.split(" ");
 		array[0] = array[0].split("-").reverse().join("-");
 		start = array[0] + " " + array[1];
-		console.log(start);
-		
+		// console.log(start);
+
 		var end = $("#end").val();
 		end = end.concat(':00')
 		end = end.replace("T"," ");
 		array2 = end.split(" ");
 		array2[0] = array2[0].split("-").reverse().join("-");
 		end = array2[0] + " " + array2[1];
-		console.log(end);
+		// console.log(end);
 
 		// console.log(end);
 		var uri = 'http://172.16.33.157:8099/';
@@ -70,9 +70,9 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 			},
 			success: function(output){ // Ketika proses pengiriman berhasil
 
-				console.log('success');
+				// console.log('success');
 				//log debug json
-				console.log(output);
+				// console.log(output);
 				$("#loading2").hide(); 
 				$("#text-baseline").show();
 				$("#table-baseline").show();
