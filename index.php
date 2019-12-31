@@ -226,15 +226,30 @@
      <tbody id="table_parameter">
      </tbody>
 	</table>
-
-
-
+	
 	<div id="text-baseline">
 		<h3 class="text-white">Baseline</h3>
-		<div class="text-white" id="baseline">
-			<!-- <span>haii</span> -->
-		</div>
+	
 	</div>
+	<table style="width: 30%" class="table table-striped table-dark text-white" id="gap-baseline">
+     <thead align="center">
+          <tr>
+               <th>Gap</th>
+			   <th>Baselined</th>
+			   
+
+           </tr>
+     </thead>
+     <tbody id="baseline">
+     </tbody>
+	</table>
+
+	<!-- <div id="text-baseline">
+		<h3 class="text-white">Baseline</h3>
+		<div class="text-white" id="baseline">
+
+		</div>
+	</div> -->
 	
 
 				

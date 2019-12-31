@@ -1,13 +1,7 @@
 $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di load)
 	// Kita sembunyikan dulu untuk loadingnya
-	function isJson(str) {
-		try {
-			JSON.parse(str);
-		} catch (e) {
-			return false;
-		}
-		return true;
-	}
+	$("#gap-baseline").hide();
+
 	$("#loading").hide();
 	$("#loading2").hide();
 	$("#text-baseline").hide();
@@ -16,10 +10,20 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 	$("#table-rekom").hide();
 	$("#text-parameter").hide();
 	$("#table-parameter").hide();
-
+	$("#baseline").hide();
+	
 	$("#form").submit(function(e) {
+		
+
+
 		// console.log('masuk form')
 		e.preventDefault(); // avoid to execute the actual submit of the form.
+		$("#baseline").empty();
+		$("#table_parameter").empty();
+		$("#tbody").empty();
+		$("#table_rekom").empty();
+
+
 		$("#loading2").show(); 
 		var unit = $("#unit").val();
 		var district = $("#district").val();
@@ -92,15 +96,19 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 				else{
 				// console.log('success');
 				//log debug json
-				// console.log(output);
+				console.log(output);
 				$("#loading2").hide(); 
 				$("#text-baseline").show();
+				$("#baseline").show();
+				
+				$("#gap-baseline").show();
+
 				$("#table-baseline").show();
 				$("#text-rekom").show();
 				$("#table-rekom").show();
 				$("#text-parameter").show();
 				$("#table-parameter").show();
-
+				
 				var save_index = [];
 				//looping data parameter
 				$.each(output, function (index) {
@@ -184,9 +192,16 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 					
 					save_index.push = index;
 					if(index == 8) {
-						var baseline_html =  "<h4 class='text-white'>" +"Gap = "+output.baseline[index].gap + "</h4>"
-										+"<br>" + "<h4 class='text-white'>" + "Baselined = " + output.baseline[index].baselined+ "</h4>" + "<br>";
+						// var baseline_html =  "<h4 class='text-white'>" +"Gap = "+output.baseline[index].gap + "</h4>"
+						// 				+"<br>" + "<h4 class='text-white'>" + "Baselined = " + output.baseline[index].baselined+ "</h4>" + "<br>";
+						// $('#baseline').append(baseline_html);
+
+						var baseline_html = "<tr>"
+								+ "<td style='text-align:left;'>" + output.baseline[index].gap+ "</td>"
+								+ "<td style='text-align:left;'>" + output.baseline[index].baselined+ "</td>"
+								+ "</tr>";
 						$('#baseline').append(baseline_html);
+
 						return true;
 					}
 
@@ -490,8 +505,8 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 					// }
 					save_index.push = index;
 					if(index == 8) {
-						var baseline_html =  "<span>" +"Gap = "+output.baseline[index].gap + "</span>"
-										+"<br>" + "<span>" + "Baselined = " + output.baseline[index].baselined+ "</span>" + "<br>";
+						var baseline_html =  "<h4>" +"Gap = "+output.baseline[index].gap + "</h4>"
+										+"<br>" + "<h4>" + "Baselined = " + output.baseline[index].baselined+ "</h4>" + "<br>";
 						$('#baseline').append(baseline_html);
 						return true;
 					}
