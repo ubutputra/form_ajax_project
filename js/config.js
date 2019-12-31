@@ -1,5 +1,13 @@
 $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di load)
 	// Kita sembunyikan dulu untuk loadingnya
+	function isJson(str) {
+		try {
+			JSON.parse(str);
+		} catch (e) {
+			return false;
+		}
+		return true;
+	}
 	$("#loading").hide();
 	$("#loading2").hide();
 	$("#text-baseline").hide();
@@ -69,7 +77,19 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 				}
 			},
 			success: function(output){ // Ketika proses pengiriman berhasil
+				console.log("success");
+				
+				//check error
+				if(output['error']){
+					// alert("masuk eror");
+					alert(output['error']);
+					$("#loading2").hide(); 
 
+				}
+
+
+				//sukses masuk data
+				else{
 				// console.log('success');
 				//log debug json
 				// console.log(output);
@@ -169,6 +189,22 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 						$('#baseline').append(baseline_html);
 						return true;
 					}
+
+					if( output.baseline[index].perubahan === null){
+						output.baseline[index].perubahan = '-';
+					}
+
+					if( output.baseline[index].percentheatrate === null){
+						output.baseline[index].percentheatrate = '-';
+					}
+
+					if( output.baseline[index].baselineheatrate === null){
+						output.baseline[index].baselineheatrate = '-';
+					}
+
+				
+					
+
 					var eachrow = "<tr>"
 								+ "<td style='text-align:center;'>" + output.baseline[index].deskripsi+ "</td>"
 								+ "<td style='text-align:center;'>" + output.baseline[index].perubahan+ "</td>"
@@ -262,9 +298,11 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 				});
 
 				
+				}
 			},
 			error: function (xhr, ajaxOptions, thrownError) { // Ketika ada error
-				alert(thrownError); // Munculkan alert error
+				alert(ajaxOptions); // Munculkan alert error
+				$("#loading2").hide(); 
 				// alert("Hello! I am an alert box!!");
 			}
 		});
