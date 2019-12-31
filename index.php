@@ -231,7 +231,7 @@
 
 	<div id="text-baseline">
 		<h3 class="text-white">Baseline</h3>
-		<div id="baseline">
+		<div class="text-white" id="baseline">
 			<!-- <span>haii</span> -->
 		</div>
 	</div>
@@ -387,7 +387,7 @@ $(function() {
 
 		  });
        });
-    </script>
+    </script>	
 
 </body>
 

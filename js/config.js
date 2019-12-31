@@ -184,8 +184,8 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 					
 					save_index.push = index;
 					if(index == 8) {
-						var baseline_html =  "<span>" +"Gap = "+output.baseline[index].gap + "</span>"
-										+"<br>" + "<span>" + "Baselined = " + output.baseline[index].baselined+ "</span>" + "<br>";
+						var baseline_html =  "<h4 class='text-white'>" +"Gap = "+output.baseline[index].gap + "</h4>"
+										+"<br>" + "<h4 class='text-white'>" + "Baselined = " + output.baseline[index].baselined+ "</h4>" + "<br>";
 						$('#baseline').append(baseline_html);
 						return true;
 					}
